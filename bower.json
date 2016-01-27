@@ -1,0 +1,21 @@
+{
+  "name": "frontend-build",
+  "description": "Build system for frontend",
+  "main": "index.js",
+  "author": "vickas777",
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "*",
+    "jquery": "2.*"
+  }
+}
