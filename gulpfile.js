@@ -25,7 +25,7 @@ var path = {
     src: {
       html: 'src/*.html',
       js: 'src/js/main.js',
-      style: 'src/style/_main.scss',
+      style: 'src/style/main.scss',
       img: 'src/img/**/*.*',
       fonts: 'src/fonts/**/*.*'
     },
@@ -67,7 +67,6 @@ gulp.task('html:build', function () {
 gulp.task('js:build', function () {
     gulp.src(path.src.js)
         .pipe(rigger())
-        .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({stream: true}));
@@ -75,7 +74,6 @@ gulp.task('js:build', function () {
 
 gulp.task('style:build', function () {
     gulp.src(path.src.style)
-        .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(prefixer())
         .pipe(cssmin())

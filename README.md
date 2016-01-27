@@ -30,15 +30,15 @@ Subfolders cotain:
      - fonts: to save your custom fonts;
      - img: folder for images;
      - js|
-         |- partials|
-         |          |app.js: your JS code;
+         | - partials|
+         |           |app.js: your JS code;
          |main.js: all JS connections and includes;
      - style|
             | - partials|
-            |           |_app.scss: your SCSS code;
-            |           |_mixins.scss: your SCSS mixins;
-            |           |_variables.scss: your SCSS variables;
-            |_main.scss: all CSS connections and includes;
+            |           | _app.scss: your SCSS code;
+            |           | _mixins.scss: your SCSS mixins;
+            |           | _variables.scss: your SCSS variables;
+            | main.scss: all CSS connections and includes;
      - template: template HTML files such as headers, footers etc.
 
 ## For future user
