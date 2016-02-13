@@ -1,26 +1,34 @@
 # Frontend build system
 
 ## Introduction
-This is simple build system for creating sites( HTML, SASS, JS). It is based on [Gulp](http://gulpjs.com/). It has web-server with LiveReload, to see changes imediately, SASS compiller, Rigger to "include" files one into another and simliest inteface to use.
+This is simple build system for creating sites( HTML, SSS, JS). It is based on [Gulp](http://gulpjs.com/). It has web-server with LiveReload, to see changes imediately, SASS compiller, Rigger to "include" files one into another and the simpliest inteface to use.
 
-## Usage
+## Instalation and usage
 System uses from command line. You need [Node.js](https://nodejs.org) to be installed.
-First clone this to folder you want to use and go it into a command line(terminal).
-Then run:
+First clone this to the folder you want to use, and go it's path into a command line(terminal).
+Install Gulp globaly:
 
-    npm i
+    	npm i gulp -g
+
+and run:
+
+		npm i
 
 If you use Bower edit "bower.json" file to add plugins (default is jQuery and normalize.css) and run:
 
-    bower i
+    	bower i
 
-After all installations run
+After all installations run this system by command:
 
-    gulp
+    	gulp
 
-Be happy.
+It clears build folder,if it was creaded previosly, and then start to build your project.
 
-To install some plugins you need C++ compiller and Python 2.7. If you have errors in instalation check it.
+Source maps are written by default. If you need clear files without sourcemaps just run:
+
+		NODE_ENV=production gulp
+
+To install some plugins you need C++ compiller and Python 2.7. If you have errors in installation check it.
 
 ## Structure
 Folder "src" contain your source code.
@@ -38,8 +46,9 @@ Subfolders cotain:
             |           | _app.scss: your SCSS code;
             |           | _mixins.scss: your SCSS mixins;
             |           | _variables.scss: your SCSS variables;
-            | main.scss: all CSS connections and includes;
+												| _fonts.scss: custom fonts connections;
+            | main.scss: all CSS connections and includes used for project;
      - template: template HTML files such as headers, footers etc.
 
 ## For future user
-Firtly I created this system to make my web-developing easier. If you have some improvements of this system, I'll be very glad to see it.
+Firstly I created this system to make my web-developing easier. If you have some improvements of this system, I'll be very glad to see it.

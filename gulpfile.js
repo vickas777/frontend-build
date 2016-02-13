@@ -1,5 +1,7 @@
 'use strict';
 
+const isDev = process.env.NODE_ENV === 'dev' || !process.env.NODE_ENV;
+
 var gulp = require('gulp'),
     watch = require('gulp-watch'),
     prefixer = require('gulp-autoprefixer'),
@@ -12,6 +14,7 @@ var gulp = require('gulp'),
     pngquant = require('imagemin-pngquant'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
+		gulpIf = require('gulp-if'),
     reload = browserSync.reload;
 
 var path = {
@@ -46,16 +49,8 @@ var config = {
 	    tunnel: true,
 	    host: 'localhost',
 	    port: 9090,
-	    logPrefix: "vickas777"
+	    logPrefix: "Build system"
 };
-
-gulp.task('build', [
-    'html:build',
-    'js:build',
-    'style:build',
-    'fonts:build',
-    'image:build'
-]);
 
 gulp.task('html:build', function () {
     gulp.src(path.src.html)
@@ -66,17 +61,21 @@ gulp.task('html:build', function () {
 
 gulp.task('js:build', function () {
     gulp.src(path.src.js)
-        .pipe(rigger())
+        .pipe(gulpIf(isDev, sourcemaps.init()))
+				.pipe(rigger())
         .pipe(uglify())
+				.pipe(gulpIf(isDev, sourcemaps.write()))
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({stream: true}));
 });
 
 gulp.task('style:build', function () {
     gulp.src(path.src.style)
-        .pipe(sass())
+        .pipe(gulpIf(isDev, sourcemaps.init()))
+				.pipe(sass().on('error', sass.logError))
         .pipe(prefixer())
         .pipe(cssmin())
+				.pipe(gulpIf(isDev, sourcemaps.write()))
         .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}));
 });
@@ -124,4 +123,17 @@ gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
 
-gulp.task('default', ['build', 'webserver', 'watch']);
+gulp.task('build',[
+	    'html:build',
+	    'js:build',
+	    'style:build',
+	    'fonts:build',
+	    'image:build'
+		]
+	);
+
+gulp.task('default', ['clean'], function () {
+	gulp.start('build')
+			.start('webserver')
+			.start('watch');
+});

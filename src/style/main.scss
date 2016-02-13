@@ -1,9 +1,12 @@
 /*
 * Third Party
 */
-@import "../../bower_components/normalize.css/normalize";
+
 
 /*
 * My CSS
 */
+@import "partials/variables";
+@import "partials/mixins";
+@import "partials/fonts";
 @import "partials/app";

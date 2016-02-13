@@ -1,2 +1,12 @@
-@import "variables";
-@import "mixins";
+body{
+	font-family: "master_of_break";
+	font-size: 45px;
+	@include size(50%, 100%);
+	background-color: $body-color;
+	position: relative;
+	margin: 0 auto;
+}
+section{
+	text-align: center;
+	margin: 20px 0;
+}
