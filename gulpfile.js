@@ -15,6 +15,7 @@ var gulp = require('gulp'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
 		gulpIf = require('gulp-if'),
+		notify = require('gulp-notify'),
     reload = browserSync.reload;
 
 var path = {
@@ -72,7 +73,13 @@ gulp.task('js:build', function () {
 gulp.task('style:build', function () {
     gulp.src(path.src.style)
         .pipe(gulpIf(isDev, sourcemaps.init()))
-				.pipe(sass().on('error', sass.logError))
+				.pipe(sass())
+					.on('error', notify.onError(function (err) {
+						return {
+							title: "Styles",
+							message: err.message
+						};
+					}))
         .pipe(prefixer())
         .pipe(cssmin())
 				.pipe(gulpIf(isDev, sourcemaps.write()))

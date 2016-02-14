@@ -21,6 +21,7 @@
     "gulp-uglify": "latest",
     "gulp-watch": "latest",
     "imagemin-pngquant": "latest",
-    "rimraf": "latest"
+    "rimraf": "latest",
+    "gulp-notify": "latest"
   }
 }
