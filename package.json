@@ -12,6 +12,7 @@
   "author": "vickas777",
   "license": "MIT",
   "dependencies": {
+    "stream-combiner2": "latest",
     "browser-sync": "latest",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "latest",
@@ -23,7 +24,6 @@
     "gulp-sass": "latest",
     "gulp-sourcemaps": "latest",
     "gulp-uglify": "latest",
-    "gulp-watch": "latest",
     "imagemin-pngquant": "latest",
     "rimraf": "latest"
   }
