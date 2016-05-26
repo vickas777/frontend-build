@@ -2,26 +2,29 @@
   "name": "gulp-frontend-build",
   "version": "0.2.0",
   "description": "Build system for frontend projects",
-	"keywords": [
-   "frontend",
-   "build"
+  "keywords": [
+    "frontend",
+    "build"
   ],
+  "scripts":{
+    "start": "node_modules/.bin/gulp"
+  },
   "author": "vickas777",
   "license": "MIT",
-	"dependencies": {
+  "dependencies": {
     "browser-sync": "latest",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-autoprefixer": "latest",
-		"gulp": "latest",
-    "gulp-imagemin": "latest",
     "gulp-cssnano": "latest",
+    "gulp-if": "latest",
+    "gulp-imagemin": "latest",
+    "gulp-notify": "latest",
     "gulp-rigger": "latest",
-		"gulp-if": "latest",
     "gulp-sass": "latest",
     "gulp-sourcemaps": "latest",
     "gulp-uglify": "latest",
     "gulp-watch": "latest",
     "imagemin-pngquant": "latest",
-    "rimraf": "latest",
-    "gulp-notify": "latest"
+    "rimraf": "latest"
   }
 }

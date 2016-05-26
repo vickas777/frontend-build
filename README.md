@@ -6,11 +6,7 @@ This is simple build system for creating sites( HTML, SSS, JS). It is based on [
 ## Instalation and usage
 System uses from command line. You need [Node.js](https://nodejs.org) to be installed.
 First clone this to the folder you want to use, and go it's path into a command line(terminal).
-Install Gulp globaly:
-
-    	npm i gulp -g
-
-and run:
+Install system:
 
 		npm i
 
@@ -20,13 +16,13 @@ If you use Bower edit "bower.json" file to add plugins (default is jQuery and no
 
 After all installations run this system by command:
 
-    	gulp
+    	npm start
 
 It clears build folder,if it was creaded previosly, and then start to build your project.
 
 Source maps are written by default. If you need clear files without sourcemaps just run:
 
-		NODE_ENV=production gulp
+		NODE_ENV=production npm start
 
 To install some plugins you need C++ compiller and Python 2.7. If you have errors in installation check it.
 
